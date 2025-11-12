@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>MezeFM Radio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(135deg, #0a1931 0%, #1f4068 100%);
+      color: #ffffff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+    }
+    header {
+      margin-bottom: 1rem;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin: 0;
+    }
+    p.description {
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    audio {
+      width: 80%;
+      max-width: 420px;
+      margin: 1rem auto;
+    }
+    footer {
+      margin-top: 2rem;
+      font-size: 0.8rem;
+      color: #cccccc;
+    }
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+      p.description {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>MezeFM Radio</h1>
+    <p class="description">A simple web player for your radio stream</p>
+  </header>
+
+  <!-- Replace the example stream URL with your own streaming link -->
+  <audio controls autoplay>
+    <source src="YOUR_STREAM_URL_HERE" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <footer>
+    <p>&copy; 2025 MezeFM Radio. Replace "YOUR_STREAM_URL_HERE" with your radio stream URL.</p>
+  </footer>
+</body>
+</html>
