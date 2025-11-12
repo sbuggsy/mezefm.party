@@ -1,69 +1,501 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <title>MezeFM Radio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(135deg, #0a1931 0%, #1f4068 100%);
-      color: #ffffff;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      text-align: center;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meze FM</title>
+    <link rel="icon" href="girl2.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+    <script>
+        function openDonationPage() {
+            // Replace 'https://your-donation-page-url.com' with your actual donation page URL
+            window.open('https://your-donation-page-url.com', '_blank');
+        }
+
+        function toggleMenu() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('active');
+        }
+    </script>
+    <style>
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f2f2f2;
+    background-image: url('Background3.jpg');
+    background-size: contain;
+    background-repeat: repeat-y;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background-color: #333333;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    position: relative;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    padding: 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+nav ul.active {
+    display: block;
+}
+
+header {
+    margin-bottom: 20px; /* Add extra space between the header and the content below */
+    text-align: center;
+}
+
+header img {
+    display: block;
+    max-width: 50%; /* Smaller size for logo */
+    height: auto;
+    margin: 120px auto;
+}
+
+section {
+    padding: 20px;
+    margin: 20px auto;
+    background-color: #333333;
+    color: white;
+    border-radius: 10px;
+    max-width: calc(100% - 40px);
+    box-sizing: border-box;
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+h3 {
+    font-size: 14px;
+    text-align: justify;
+}
+
+
+@media screen and (max-width: 768px) {
+    h3 {
+        font-size: 12px;
     }
-    header {
-      margin-bottom: 1rem;
+
+    .two-column-container {
+        flex-direction: column;
     }
-    h1 {
-      font-size: 2.5rem;
-      margin: 0;
+
+    .column, .form-container {
+        width: 100%;
+        margin-bottom: 20px;
     }
-    p.description {
-      font-size: 1.1rem;
-      margin-top: 0.5rem;
-      margin-bottom: 1.5rem;
+
+    .radio-container iframe {
+        width: 100%;
     }
-    audio {
-      width: 80%;
-      max-width: 420px;
-      margin: 1rem auto;
+
+    .menu-icon {
+        display: block;
+        position: absolute;
+        top: 10px;
+        right: 10px;
     }
-    footer {
-      margin-top: 2rem;
-      font-size: 0.8rem;
-      color: #cccccc;
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
     }
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 2rem;
-      }
-      p.description {
-        font-size: 1rem;
-      }
+
+    nav ul.active {
+        display: flex;
     }
-  </style>
+
+    .radio-container iframe {
+        width: 100%;
+    }
+
+    .form-container form {
+        width: 100%;
+    }
+
+    .form-container form input,
+    .form-container form textarea {
+        width: calc(100% - 24px); /* Adjust width to fit within container */
+    }
+
+    .form-container {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .Girl {
+        width: 100%;
+    }
+
+    .how-to-listen-icons img {
+        width: 8%; /* Increase size of the icons */
+    }
+
+    .centered-images img {
+        max-width: 100%;
+        height: auto;
+        margin: 0 auto;
+        display: block;
+        max-width: 150px; /* Smaller size for images */
+    }
+
+    .float-left {
+        float: left;
+        margin: 0 20px 20px 0;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    h3 {
+        font-size: 10px;
+    }
+
+    .radio-container iframe {
+        width: 100%;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+
+    .Girl {
+        width: 20%; /* Increase size of the girl image */
+    }
+
+    .how-to-listen-icons img {
+        width: 10%; /* Further increase size of the icons */
+    }
+
+    .centered-images img {
+        max-width: 100%;
+        height: auto;
+        margin: 0 auto;
+        display: block;
+        max-width: 150px; /* Smaller size for images */
+    }
+}
+
+.radio-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.radio-container iframe {
+    width: 80%;
+    max-width: 600px;
+    height: 330px;
+    border: 0;
+}
+
+.two-column-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.column, .form-container {
+    width: 48%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 10px;
+}
+
+input, textarea {
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: calc(100% - 24px); /* Adjust width to fit within container */
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    padding: 12px;
+    font-size: 16px;
+    background-color: #ffcc00;
+    color: #333333;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #ffd633;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333333;
+    color: white;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.Girl {
+    width: 7%;
+    margin-right: 10px;
+}
+
+.centered-text {
+    text-align: justify;
+}
+
+.centered-images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.centered-images img {
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+    max-width: 150px; /* Smaller size for images */
+}
+
+.float-left {
+    float: left;
+    margin: 0 20px 20px 0;
+}
+
+.form-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.form-container form {
+    width: 100%; /* Adjust width to fit within container */
+}
+
+nav ul li img {
+    max-width: 100px; /* Adjust the size as needed */
+    height: auto;
+}
+
+
+        .section-img {
+            display: block;
+            text-align: left;
+            height: 30;
+            width: auto;
+        }
+            
+        .section-img img {
+            height: 30px; /* Set a fixed height */
+            width: auto; /* Let width adjust proportionally */
+            margin-right: 20px; /* Space between image and text */
+        }
+        .Listen-contact {
+             font-size: 10px; /* Adjust the font size as needed */
+        }
+        .events-section {
+            padding: 20px;
+            margin: 20px auto;
+            background-color: #333333;
+            color: white;
+            border-radius: 10px;
+            max-width: calc(100% - 40px);
+            box-sizing: border-box;
+        }
+    </style>
 </head>
+
 <body>
-  <header>
-    <h1>MezeFM Radio</h1>
-    <p class="description">A simple web player for your radio stream</p>
-  </header>
+    <!-- Navigation Section -->
+    <nav>
+        <span class="menu-icon" onclick="toggleMenu()">☰</span>
+        <ul id="navMenu">
+            <li><a href="#home"><img src="live2.png" alt="Live"></a></li>
+            <li><a href="#OUR_CREW">Our Crew</a></li>
+            <li><a href="#How_To_Listen">How to Listen</a></li>
+            <li><a href="#feedback">Contact Us</a></li>
+            <li><a href="#events">Events</a></li>
+        </ul>
+    </nav>
 
-  <!-- Replace the example stream URL with your own streaming link -->
-  <audio controls autoplay>
-    <source src="YOUR_STREAM_URL_HERE" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
+    <!-- Logo and Additional Image -->
+    <header> 
+        <img src="logo_without_background.png" alt="Meze FM Logo">
+      
+    </header>
 
-  <footer>
-    <p>&copy; 2025 MezeFM Radio. Replace "YOUR_STREAM_URL_HERE" with your radio stream URL.</p>
-  </footer>
+    <!-- Home Section -->
+    <section id="home">
+        <div class="radio-container">
+            <iframe width="330" height="330" src="https://media2.streambrothers.com:2000/AudioPlayer/8000?mount=&" frameborder="0"></iframe>
+        </div>
+    </section>
+
+    <!-- Our Crew Section -->
+    <section id="OUR_CREW" class="OUR_CREW-section section-img">
+        <img src="OUR_CREW.png" alt="Our Crew">
+        <h3 class="centered-text">
+            At MezeFM, we believe in the power of music to unite communities, transcend borders, and ignite the spirit. Born from a passion for cultural diversity and the celebration of Eastern European sounds, we strive to create a vibrant space where melodies from distant lands find a home. Our journey began with a simple idea: to share the rich tapestry of Romanian, Bulgarian, Greek, and Serbian music with the world. What started as a humble radio station has evolved into a beacon of cultural exchange, where each tune tells a story and every beat connects hearts. Driven by our commitment to diversity and inclusion, we curate playlists that not only entertain but also educate and inspire. From traditional folk melodies to modern rhythms, our music transcends language barriers and invites listeners on a journey of discovery.
+        </h3>
+    </section>
+
+    <!-- How to Listen Section -->
+    <section id="How_To_Listen">
+        <div class="section-img">
+            <img src="How_to_Listen.png" alt="How to Listen">
+        </div>
+        <h3 class="centered-text">
+            Listening to MezeFM is a breeze! Whether you’re at home, on the go, or at work, our station is accessible through multiple platforms:
+            <ul>
+                <li>Website: Tune in directly from our website using the embedded player.</li>
+                <li>Mobile App: Download our app from the App Store or Google Play for seamless streaming on your mobile devices.</li>
+                <li>Smart Speakers: Simply ask your smart speaker to “Play MezeFM” and enjoy our curated playlists instantly.</li>
+                <li>Streaming Platforms: Find us on popular streaming services like TuneIn, iHeartRadio, and more.</li>
+            </ul>
+            The easiest way to listen to Radio Danz is by clicking the play button on the player at the very bottom of this page. This also applies to listening on your mobile device. Just visit our website on your phone and use the player at the bottom of the page. But there are also several other ways to listen to us!!
+            (Yes, we're working on updating our Android app).<br>
+            Just right click to copy the link URL.<br>
+            <a href="https://media2.streambrothers.com:2000/tunein/8000/stream/pls" alt="Winamp"><img src="https://media2.streambrothers.com:2000/system/theme/Material/images/winamp.gif" border="0" style="width: 2%;" /></a><strong>Winamp</strong><br>
+            <a href="https://media2.streambrothers.com:2000/tunein/8000/stream/pls" alt="VLC"><img src="https://media2.streambrothers.com:2000/system/theme/Material/images/vlc.gif" border="0" style="width: 2%;" /></a><strong>VLC</strong><br>
+            <a href="https://media2.streambrothers.com:2000/tunein/8000/stream/pls" alt="Itunes"><img src="https://media2.streambrothers.com:2000/system/theme/Material/images/itunes.gif" border="0" style="width: 2%;" /></a><strong>Itunes</strong>s<br>
+            <a href="https://media2.streambrothers.com:2000/tunein/8000/stream/asx" alt="Windows Media Player"><img src="https://media2.streambrothers.com:2000/system/theme/Material/images/mplayer.gif" border="0" style="width: 2%;" /></a><strong>Media Player</strong><br>
+            <a href="https://media2.streambrothers.com:2000/tunein/8000/stream/ram" alt="Real Player"><img src="https://media2.streambrothers.com:2000/system/theme/Material/images/realplayer.gif" border="0" style="width: 2%;" /></a><strong>Real Player</strong><br>
+            <p class="Listen-contact">Please contact us if you have any questions using the links above or about listening to us.</p>
+        </h3>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section id="feedback" class="contact-section section-img">
+        <img src="Contact_us.png" alt="Contact Us">
+        <div class="two-column-container">
+            <!-- Column 1: Contact Information -->
+            <div >
+                <h2 >Feedback & Contacts</h2>
+                <p>Meze FM Radio</p>
+                <p>123 Music Ave</p>
+                <p>City, Country</p>
+                <p>Email: example@mezefm.com</p>
+                <p>Phone: +123 456 789</p>
+            </div>
+            
+            <!-- Column 2: Contact Form -->
+            <div class="form-container">
+                <h2>Send us a Message</h2>
+                <form action="https://formspree.io/f/{your-form-id}" method="POST">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+    
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+    
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+    
+                    <button type="submit">Send</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="section-img">
+        <img src="Events.png" alt="Events">
+        <div class="events-section">
+            <div class="two-column-container">
+                <div class="column">
+                    <img src="horo.png" alt="Event Image" style="max-width: 100%; height: auto; background-color: #ddd; padding: 10px; border-radius: 10px;">
+                </div>
+                <div class="column"> 
+                    <h3 class="centered-text">
+                        The Bulgarian community in London is organizing a Festive Concert on May 19, 2024, at Pymmes Park, Edmonton Green, starting at 12 PM, to celebrate May 24 - the Day of the Holy Brothers Cyril and Methodius, the Bulgarian alphabet, education and culture, and Slavic literature. The address is: Victoria Rd, London N18 2UG. We invite all Bulgarians to come and have fun together! Free entry!
+                    </h3>
+                    <h3 class="centered-text">
+                        Stay tuned for upcoming events! We regularly host live shows, cultural festivals, and community gatherings that celebrate the vibrant cultures we represent. Check back soon for the latest updates on our events calendar.
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="donate">
+        <div class="donation-container">
+            <h2>Support Our Radio Station</h2>
+            <img src="girl2.png" alt="Girl" class="Girl">
+            <button onclick="openDonationPage()">Support Us</button>
+            <p>Help sustain and promote the first Bulgarian radio station in the UK – First Bulgarian Radio, even with minimal financial means. This will demonstrate your commitment to independent media and the preservation of Bulgarian culture. First Bulgarian Radio is dedicated to serving the Bulgarian community in the UK and beyond, providing a vital platform for news, entertainment, and cultural exchange. Your support is invaluable in keeping our radio station operational and thriving!</p>
+            <p>Our bank account details are:</p>
+            <p>PA Events Ltd,<br>
+            Lloyds Bank,<br>
+            Sort Code: 30-92-90,<br>
+            Account: 02271697</p>
+            <p>Thank you for your generosity!</p>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Meze FM. All rights reserved.</p>
+    </footer>
 </body>
+
 </html>
